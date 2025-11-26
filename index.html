@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+
+<html lang="en" data-theme="light">  <!-- Root HTML element with data-theme attribute and lang attribute -->
+<head> <!-- Head section: metadata and links to resources -->
+    <meta charset="UTF-8"> <!-- specifies Character encoding as UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/> <!-- Responsive design -->
+    <title>Lauryn Little - Online Resume</title> <!-- Page title -->
+    <meta name="description" content="Online resume for Lauryn Little — Cybersecurity student with interest in Fullstack Programming, Secure System Design, and Database Technologies."/> <!-- Meta description for SEO -->
+    <link rel="stylesheet" href="styles.css"> <!-- Link to external CSS file -->
+</head>
+<body>
+
+<!-- ===================== NAV ===================== -->
+    <nav aria-label="Primary"> <!-- Navigation bar for quick jumps -->
+        <div class="navwrap"> <!-- Container for navigation links -->
+            <a href="#about">About</a> <!-- Jumps to About section -->
+            <a href="#skills">Skills</a> <!-- Jumps to Skills section -->
+            <a href="#experience">Experience</a> <!-- Jumps to Experience -->
+            <a href="#education">Education</a> <!-- Jumps to Education -->
+            <a href="#projects">Projects</a> <!-- Jumps to Projects -->
+            <a href="#contact">Contact</a> <!-- Jumps to Contact -->
+            <a href="walkthrough.html">Build Walkthrough</a> <!-- Jumps to Walkthrough -->
+        </div>
+    </nav>
+
+
+
+<!-- ===================== HEADER ===================== -->
+    <div class="container"> <!-- Main content container-->
+        <header> <!-- Header section: name, photo, and action buttons -->
+            <div class="id"> <!-- Container for avatar and identify info -->
+                <img src="assets/me.jpg" alt="Photo of Lauryn Little" class="avatar"> <!-- Profile picture with alt text -->
+                <div class="name"> <!-- Container for name and tagline-->
+                    <h1>Lauryn Little</h1> <!-- Main heading with name -->
+                    <p>Cybersecurity (BS) — 3rd Year • Minor: Environmental Studies • Rochester Institute of Technology</p> 
+                    <div class="chips">  <!-- Quick facts -->
+                        <span class="chip">Dean’s List: Spring 2024</span> <!-- Achievement chip -->
+                        <span class="chip">Seeking Summer 2026 Internship</span> <!-- Availability chip -->
+                        <span class="chip">Rochester, NY</span> <!-- Location chip -->
+                    </div>
+                </div>
+            </div>
+            <div class="btns"> <!-- Action buttons (download, contact, theme toggle) -->
+                <a class="btn primary" href="assets/resume/LaurynLittleResume2025.pdf" download>Download Resume</a> <!-- Downloads PDF resume -->
+                <a class="btn primary" href="#contact" title="Get in touch">Contact</a> <!-- Scrolls to contact section -->
+                <a class="btn primary theme-toggle" id="themeToggle" title="Toggle dark mode">Toggle Theme</a> <!-- Switches theme mode -->
+            </div>
+        </header>
+
+
+<!-- ===================== ABOUT ===================== -->
+        <section id="about">  <!-- Objective section -->
+            <h2>Objective</h2>  <!-- Section Header -->
+            <div class="card">  <!-- Card container for content-->
+                <p>Seeking a co-op/internship in <strong>software development</strong>, <strong>cybersecurity</strong>, <strong>back‑end</strong>, 
+                    or <strong>front‑end development</strong>. <strong>Available Summer 2026.</strong></p> <!-- Career goal statement -->
+            </div>
+        </section>
+
+<!-- ===================== CONTACT ===================== -->
+        <section id="contact">  <!-- Contact info -->
+            <h2>Contact</h2>  <!-- Section Header -->
+            <div class="card">  <!-- Contact Card -->
+                <p>
+                    <strong>Phone:</strong> <a href="tel:+14694048393">+1 469‑404‑8393</a> &nbsp;•&nbsp;
+                    <strong>Email:</strong> <a href="mailto:Rynlittle1213@gmail.com">Rynlittle1213@gmail.com</a> &nbsp;•&nbsp;
+                    <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/laurynlittle" target="_blank" rel="noopener">linkedin.com/in/laurynlittle</a>
+                </p>
+            </div>
+        </section>
+
+
+<!-- ===================== SKILLS ===================== -->
+        <section id="skills">  <!-- Skills Section -->
+            <h2>Skills</h2>  <!-- Section Header -->
+            <div class="grid">  <!-- Two-Column layout for skills -->
+                <div class="card">
+                    <div class="row"><strong>Programming Languages</strong><span class="muted">Python, Java, C, Assembly, JavaScript, SQL, HTML/CSS</span></div> <!-- Programming languages -->
+                    <div class="row"><strong>Software / OS</strong><span class="muted">Windows; Linux: Rocky, Kali, Ubuntu; pfSense</span></div> <!-- Operating systems -->
+                    <div class="row"><strong>Web Dev</strong><span class="muted">HTML, CSS, JavaScript (basic)</span></div> <!-- Web dev skills -->
+                    <div class="row"><strong>Tools / Platforms</strong><span class="muted">Visual Studio, Git, MySQL, Wireshark, Ghidra, PEbear, PuTTY, Docker (intro)</span></div> <!-- Software tools -->
+                </div>
+                <div class="card">  <!-- Right column-->
+                    <strong>Highlights</strong>
+                    <ul>  <!-- List of key skills -->
+                        <li>Hands‑on labs: packet capture/analysis, secure web configuration, scripting</li> <!-- Practical experience -->
+                        <li>Comfortable documenting steps, diagrams, and results</li> <!-- Soft skill detail -->
+                        <li>Proficient in programming languages including Python, Java, and C</li>
+                        <li>Familiarity with web development technologies such as HTML, CSS, and JavaScript</li>
+                        <li>Knowledge of database management systems and SQL</li>
+                        <li>Problem-solving and analytical skills</li>
+                        <li>Effective communication and teamwork abilities</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+
+
+<!-- ===================== EXPERIENCE ===================== -->
+        <section id="experience">  <!-- Work Section -->
+            <h2>Experience</h2>
+            <div class="grid">  <!-- Two-Column layout-->
+                <div class="card">  <!-- Job 1 -->
+                    <div class="row"><strong>Before & After School Program Assistant — YMCA of Greater Rochester</strong><span class="muted">Aug 2023 – Present • Rochester, NY</span></div>
+                    <ul>
+                        <li class="list-item"><span class="dot"></span><span>Guided lesson activities, homework help, and social‑emotional support.</span></li>
+                        <li class="list-item"><span class="dot"></span><span>Ensured clean, safe learning spaces and maintained accurate records.</span></li>
+                        <li class="list-item"><span class="dot"></span><span>Supported peer relationships and behavior redirection.</span></li>
+                    </ul>
+                </div>
+                <div class="card"> <!-- Job 2 -->
+                    <div class="row"><strong>Day Camp Counselor — YMCA of Greater Rochester</strong><span class="muted">Jun 2023 – Aug 2024 • Rochester, NY</span></div>
+                    <ul>
+                        <li class="list-item"><span class="dot"></span><span>Created inclusive and engaging environments for youth participants.</span></li>
+                        <li class="list-item"><span class="dot"></span><span>Maintained communication with caregivers and documentation.</span></li>
+                        <li class="list-item"><span class="dot"></span><span>Led behavior management and supported team coordination.</span></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+<!-- ===================== EDUCATION ===================== -->
+        <section id="education">  <!-- Education Section-->
+            <h2>Education</h2>  <!-- Section Header -->
+            <div class="card">  <!-- Education Card -->
+                <div class="row"><strong>Rochester Institute of Technology (RIT)</strong><span class="muted">Rochester, NY</span></div> <!-- School info -->
+                <div class="row"><span>B.S. in Cybersecurity — <em>Expected May 2027</em></span><span class="muted">Dean’s List: Spring 2024</span></div> <!-- Degree info -->
+                <ul> <!-- List of relevant coursework -->
+                    <li>Relevant Coursework: Network Security, Secure System Design, Databases and SQL, Web Development, Programming in Python, Java, C and Assembly, Data Structures and Algorithms</li>
+                </ul>
+            </div>
+        </section>
+
+
+<!-- ===================== PROJECTS ===================== -->
+        <section id="projects"> <!-- Project Section starts-->
+            <h2>Projects </h2> <!-- Heading for project section -->
+                <div class="card project">
+                    <div class="title">Password Strength Checker</div>
+                    <p>A standalone interactive demo that evaluates password strength using length, complexity, and pattern analysis.</p> <!-- Description -->
+                    <a href="demos/password/index.html" class="btn primary" target="_blank" rel="noopener"> <!-- Button linking to demo -->
+                        Open Password Checker
+                    </a>
+                </div>
+            </div>
+        </section>
+
+
+
+<!-- ===================== FOOTER ===================== -->
+        <footer>  <!-- Footer Section -->
+            <div class="row">
+                <span>© <span id="year"></span> Lauryn Little</span> <!-- Dynamic year updated via JS -->
+                <span>Accessible • Responsive • Print‑ready • Dark‑mode</span> <!-- Feature summary -->
+            </div>
+        </footer>
+    </div> <!-- END OF MAIN CONTAINER-->
+
+
+<!-- ===================== JAVASCRIPT ===================== -->
+    <script> // JavaScript Funtion
+        const toggleBtn = document.getElementById('themeToggle'); // Get the theme toggle button by its ID
+        const root = document.documentElement; // Reference to the root HTML element
+        const saved = localStorage.getItem('theme') || 'light'; // Retrieve saved theme from localStorage or default to 'light'
+
+        if(saved) { // If Saved theme exists
+            root.setAttribute('data-theme', saved); // Apply it
+            if (saved === 'dark' && toggleBtn) toggleBtn.textContent = 'Light Mode'; // Update button label
+        }
+        
+
+        // Event listener for dark/light toggle button
+        toggleBtn?.addEventListener('click', ()=> {
+            const current = root.getAttribute('data-theme'); // Current theme
+            const next = current === 'light' ? 'dark' : 'light'; // Opposite theme
+            root.setAttribute('data-theme', next); // Apply new theme
+            localStorage.setItem('theme', next); // Save preference
+            toggleBtn.textContent = next === 'dark' ? 'Light Mode' : 'Dark Mode'; // Update(button)
+        });
+
+        //Update footer year automatically
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+
+</html>  <!-- End of Doc -->

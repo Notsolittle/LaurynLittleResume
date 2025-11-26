@@ -1,0 +1,442 @@
+/* ===================== ROOT THEME VARIABLES ===================== */
+:root { /* Root defines global color var for light theme */
+    --bg: #ffffff; /* Light background color */
+    --fg: #0f172a; /* Dark foreground color */
+    --muted: #475569; /* Muted text color */
+    --card: #a7cbd2; /* Card background card */
+    --accent: #1695a0; /* Accent color (button,highlight)*/
+    --chip: #86aba5; /* Background for Chip */
+    --border: #e2e7eb; /* Border color */
+    --link: #2d762d; /* Link Color */
+    --link-hover: #1e40af; /* Link Hover Color */
+}
+
+/* ===================== DARK THEME VARIABLES ===================== */
+html[data-theme="dark"] { /* Defines colors for dark theme */
+    --bg: #0b1220; /* Dark background color */
+    --fg: #e5e7eb; /* Light text color */
+    --muted: #94a3b8; /* Muted text in dark mode */
+    --card: #0f172a; /* Card background in dark mode */
+    --accent: #60a5fa; /* Accent color for dark mode */
+    --chip: #1f2937; /* Chip background in dark mode */
+    --border: #1f2937; /* Border color for dark mode */
+    --link: #93c5fd; /* Link color for dark mode */
+    --link-hover: #bfdbfe; /* Link hover color for dark mode */
+}
+
+/* ===================== GLOBAL RESETS ===================== */
+* {
+    box-sizing: border-box; /* Ensure padding and borders are included in element width/height */
+}
+body {
+    margin: 0;
+    font: 16px/1.6 system-ui, Arial, sans-serif; /* Base font and line-height */
+    background: var(--bg);
+    color: var(--fg); /* Apply theme background and text color */
+}
+
+a {
+    color: var(--link);
+    text-decoration: none; /* Default link color and remove underline */
+}
+a:hover {
+    color: var(--link-hover);
+    text-decoration: underline; /* Hover color and underline */
+}
+
+/* ===================== LAYOUT ===================== */
+.container {
+    max-width: 1000px; /* Limit content width */
+    margin: 0 auto; /* Center horizontally */
+    padding: 24px; /* Page padding */
+}
+
+header {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 16px;
+    border: 1px solid var(--border); /* Header border using theme variable */
+} /* Layout of header section */
+
+.id {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+} /* Styles avatar and name container */
+
+
+
+/* Avatar image styling */
+.avatar {
+    width: 97px;
+    height: 97px;
+    border-radius: 50%; /* makes the image circular */
+    object-fit: cover; /* crops perfectly to the circle */
+    border: 2px solid var(--accent); /* optional nice border */
+}
+
+.name h1 {
+    margin: 0;
+    font-size: 28px;
+    line-height: 1.2;
+} /* Main name heading style */
+
+.name p {
+    margin: 4px 0 0;
+    color: var(--muted);
+} /* Subheading text style under name */
+
+/* ===================== BUTTONS ===================== */
+.btns {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    flex-wrap: wrap;
+} /* Button group styling */
+
+.btn {
+    padding: 10px 14px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: var(--card);
+    color: var(--fg);
+    display: inline-flex;
+    gap: 8px;
+    align-items: center;
+    cursor: pointer;
+} /* Generic button style */
+
+.btn.primary {
+    background: var(--accent);
+    color: white;
+    border-color: transparent;
+} /* Primary button style */
+
+.theme-toggle {
+    white-space: nowrap;
+} /* Prevents button text from wrapping */
+
+
+
+/* ===================== BUTTON-STYLE DROPDOWN ===================== */
+.jump-menu-wrap {
+    margin-bottom: 24px;
+    background: var(--card);
+    padding: 20px;
+    border-radius: 16px;
+    border: 1px solid var(--border);
+}
+
+/* Label above dropdown */
+.jump-menu-wrap label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--fg);
+}
+
+/* Make the <select> look like your buttons */
+
+/* ===== INLINE JUMP MENU NEXT TO BUTTON ===== */
+.jump-menu-inline {
+    display: flex; /* Place label + select in a row */
+    align-items: center; /* Vertically center with the button */
+    gap: 8px; /* Space between text and dropdown */
+    flex-wrap: wrap; /* Wrap nicely on small screens */
+}
+
+.jump-label-text {
+    font-weight: 600; /* Match other labels/headings */
+}
+
+/* Make the <select> look like a button */
+#section-jump {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+
+    padding: 10px 14px;
+    border-radius: 12px;
+
+    background: var(--accent); /* Same teal as .btn.primary */
+    color: #ffffff; /* White text */
+    border: 1px solid transparent;
+
+    font-size: 16px;
+    font-family: inherit;
+    cursor: pointer;
+
+    max-width: 260px;
+
+    /* Custom white arrow */
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='20' height='20'><polygon points='0,0 20,0 10,10' fill='white'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+}
+
+/* Hover + focus states to match the button feel */
+#section-jump:hover {
+    background: rgba(22,149,160,0.9);
+}
+
+#section-jump:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(22,149,160,0.35);
+}
+
+/* ===================== NAVIGATION ===================== */
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+} /* Keeps nav fixed on top while scrolling */
+
+nav .navwrap {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    gap: 16px;
+    padding: 8px 24px;
+    overflow-x: auto;
+} /* Nav link container */
+
+nav a {
+    padding: 8px 12px;
+    border-radius: 8px;
+} /* Nav link padding and rounded corners */
+
+nav a:hover {
+    background: var(--card);
+} /* Nav link hover background */
+
+/* ===== Dropdown inside the nav bar ===== */
+.nav-jump select {
+    padding: 8px 12px;
+    border-radius: 8px;
+    background: var(--card);
+    color: var(--fg);
+    border: 1px solid var(--border);
+    font-size: 14px;
+    cursor: pointer;
+}
+
+/* Match hover feeling of nav links */
+.nav-jump select:hover {
+    background: var(--chip);
+}
+
+/* Match dark mode */
+html[data-theme="dark"] .nav-jump select {
+    background: var(--card);
+    color: var(--fg);
+    border-color: var(--border);
+}
+
+/* ===================== SECTIONS ===================== */
+section {
+    padding: 20px 0;
+    border-bottom: 1px solid var(--border);
+} /* Each section spacing and divider */
+
+h2 {
+    margin: 0 0 12px;
+    font-size: 22px;
+} /* Section heading style */
+
+h3 {
+    margin: 0 0 10px;
+    font-size: 18px;
+} /* Subheading style */
+
+.muted {
+    color: var(--muted);
+} /* Muted text style */
+
+/* ===================== GRID LAYOUT ===================== */
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+} /* 2-column grid layout */
+
+@media (max-width: 820px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+} /* Single column on smaller screens */
+
+/* ===================== CARDS ===================== */
+.card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 16px;
+} /* Card component style */
+
+.project {
+    display: flex; /* Use flex instead of grid */
+    flex-direction: column; /* Stack title, description, and button */
+    gap: 12px; /* Space between items */
+} /* Project item layout */
+.project a.btn {
+    white-space: nowrap; /* Prevent text from breaking */
+    padding: 10px 14px; /* Match your other buttons */
+    font-size: 14px; /* Consistent typography */
+}
+.project .title {
+    font-weight: 600;
+} /* Project title style */
+
+/* ===================== CHIPS ===================== */
+.chips {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 8px;
+} /* Container for multiple chips */
+
+.chip {
+    background: var(--chip);
+    color: white;
+    font-style: italic;
+    padding: 6px 10px;
+    border-radius: 999px;
+    font-size: 12px;
+    border: 1px solid var(--border);
+} /* Individual chip style */
+
+/* ===================== FORM FIELDS ===================== */
+.field {
+    display: block;
+    margin: 10px 0;
+} /* Form field container */
+
+.field > span {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 4px;
+} /* Form field label style */
+
+.field input,
+.field textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    background: var(--bg);
+    color: var(--fg);
+} /* Input appearance */
+
+/* ===================== DEMOS ===================== */
+.demo {
+    margin-top: 10px;
+} /* Demo section spacing */
+
+.meter-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 8px;
+} /* Meter row layout */
+
+.hints {
+    margin: 10px 0 0 18px;
+} /* Hints text spacing */
+
+.hints li {
+    margin: 4px 0;
+    position: relative;
+} /* Individual hint item */
+
+.hints li.ok {
+    color: green;
+} /* Color passed hints green */
+
+.hints li.ok::before {
+    content: "✓ ";
+    font-weight: 700;
+} /* Checkmark for passed hints */
+
+/* ===================== TABLE STYLING ===================== */
+.table-wrap {
+    overflow: auto;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+} /* Table container with border and rounded corners */
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+} /* Removes gap between cells */
+
+th,
+td {
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--border);
+    text-align: left;
+    background: var(--bg);
+} /* Table cell styling */
+
+thead th {
+    background: var(--card);
+    position: sticky;
+    top: 0;
+    cursor: pointer;
+} /* Sticky header row */
+
+th.sorted::after {
+    content: "";
+} /* Placeholder for sorted column indicator */
+
+.badge {
+    padding: 2px 8px;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    background: var(--card);
+} /* Badge style */
+
+.badge.ok {
+    background-color: #16a34a;
+} /* Green badge for OK status */
+
+.badge.warn {
+    background-color: #f59e0b;
+} /* Yellow badge for Warning status */
+
+/* ===================== IMAGES IN CARDS ===================== */
+.card img {
+    width: 100%; /* Let images stretch to card width */
+    height: auto; /* Keep aspect ratio */
+    display: block; /* Remove extra inline spacing */
+    border-radius: 12px; /* Match card rounding */
+    border: 1px solid var(--border); /* Subtle border around screenshots */
+    margin-bottom: 12px; /* Space before the explanation text */
+}
+
+/* ===================== PRINT STYLES ===================== */
+@media print {
+    nav,
+    .btns,
+    .theme-toggle {
+        display: none !important;
+    } /* Hides navigation and buttons when printing */
+
+    body {
+        background: white;
+        color: black;
+    } /* Print-friendly colors */
+
+    .card {
+        border-color: #ddd;
+    } /* Lighter border for printed cards */
+
+    a {
+        text-decoration: none;
+        color: black;
+    } /* Remove link styling on print */
+}

@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Build Walkthrough – Lauryn Little</title>
+    <meta name="description"
+                content="Build walkthrough of Lauryn Little’s online resume site, explaining how the HTML, CSS, and JavaScript work together.">
+    <link rel="stylesheet" href="styles.css"> <!-- Reuse main site styles -->
+</head>
+<body>
+
+    <!-- ================ NAV (WALKTHROUGH PAGE) ================ -->
+
+<nav aria-label="Primary">
+    <div class="navwrap">
+        <a href="index.html">Back to Resume</a>
+        <a href="#overview">Overview</a>
+        <a href="#html-structure">HTML Build</a>
+        <a href="#interaction">JavaScript</a>
+        <a href="#css-design">CSS Design</a>
+
+        <!-- ==== New Jump Menu INSIDE the nav ==== -->
+        <div class="nav-jump">
+            <select
+                id="section-jump"
+                onchange="if(this.value){ window.location.hash = this.value; }"
+            >
+                <option value="">Jump to…</option>
+
+                <option value="#overview">Overview</option>
+                <option value="#html-structure">HTML – Structure</option>
+                <option value="#html-nav">HTML – Navigation</option>
+                <option value="#html-header">HTML – Header</option>
+                <option value="#html-objective">HTML – Objective</option>
+                <option value="#html-skills">HTML – Skills</option>
+                <option value="#html-experience">HTML – Experience</option>
+                <option value="#html-education">HTML – Education</option>
+                <option value="#html-projects">HTML – Projects</option>
+                <option value="#html-contact">HTML – Contact</option>
+                <option value="#html-footer">HTML – Footer</option>
+
+                <option value="#interaction">JavaScript Overview</option>
+                <option value="#javascript-section">Theme Toggle (JS)</option>
+
+                <option value="#css-theme">CSS – Theme Variables</option>
+                <option value="#css-global">CSS – Global Resets</option>
+                <option value="#css-layout">CSS – Layout</option>
+                <option value="#css-buttons">CSS – Buttons</option>
+                <option value="#css-nav">CSS – Navigation</option>
+                <option value="#css-sections">CSS – Sections</option>
+                <option value="#css-grid">CSS – Grid Layout</option>
+                <option value="#css-cards">CSS – Cards</option>
+                <option value="#css-chips">CSS – Chips</option>
+                <option value="#css-formfields">CSS – Form Fields</option>
+                <option value="#css-tables">CSS – Tables</option>
+                <option value="#css-images">CSS – Images in Cards</option>
+                <option value="#css-print">CSS – Print Styles</option>
+            </select>
+        </div>
+        <!-- ==== END new dropdown ==== -->
+    </div>
+</nav>
+
+    <div class="container"><!-- Main content wrapper -->
+
+        <!-- ================= PAGE HEADER / INTRO ================= -->
+        <header>
+            <div class="id">
+                <img src="assets/me.jpg" alt="Photo of Lauryn Little" class="avatar">
+                <div class="name">
+                    <h1>Build Walkthrough</h1>
+                    <p>
+                        This page is a behind-the-scenes look at how I built my online resume site using HTML, CSS, and JavaScript.
+                        I walk through my structure, styling decisions, and small interactive features to show that I understand
+                        how everything fits together.
+                    </p>
+                </div>
+            </div>
+            <div class="btns"> <!-- Right side: main button + jump dropdown -->
+                <!-- Button linking back to the live resume -->
+                <a class="btn primary" href="index.html" title="View main resume">
+                    View Live Resume
+                </a>
+            </div>
+</header>
+        <!-- ================= OVERVIEW ================= -->
+        <section id="overview">
+            <h2>Overview</h2>
+            <div class="card">
+                <p>
+                    This walkthrough shows how each part of my resume site is built. For every screenshot, the
+                    <strong>top half shows code in VS Code</strong> and the <strong>bottom half shows the matching UI</strong>
+                    in the browser. I explain the HTML structure, CSS classes, and JavaScript behavior so it is clear that I
+                    understand how the site works end-to-end.
+                </p>
+            </div>
+        </section>
+
+        <section id="html-structure">
+            <h2>How I Structured the HTML</h2>
+            <div class="card">
+                <p>
+                    I started by planning the structure in HTML. I wanted each major part of the resume
+                    (navigation, header, objective, skills, experience, education, projects, contact, and footer)
+                    to live in its own clearly labeled section. That makes the site easier to maintain, and it also helps
+                    screen readers and assistive technology understand the page.
+                </p>
+            </div>
+
+            <!-- NAV HTML -->
+            <section id="html-nav">
+                <h3>Navigation Bar</h3>
+                <div class="card">
+                    <img src="assets/walkthrough/01_Nav.jpg"
+                             alt="Screenshot of navigation HTML and the rendered navigation bar.">
+                    <p>
+                        I use a semantic <code>&lt;nav&gt;</code> element with anchor links that point to section IDs like
+                        <code>#about</code>, <code>#skills</code>, and <code>#projects</code>. The links are wrapped in a
+                        <code>.navwrap</code> container so I can center them and control their spacing with flexbox.
+                        Using IDs for each section makes the navigation feel snappy and keeps everything on a single page.
+                    </p>
+                </div>
+            </section>
+
+            <!-- HEADER HTML -->
+            <section id="html-header">
+                <h3>Header, Photo, and Quick Facts</h3>
+                <div class="card">
+                    <img src="assets/walkthrough/02_Header.jpg"
+                             alt="Screenshot of header HTML and the rendered header with photo, name, and chips.">
+                    <p>
+                        The header introduces who I am at a glance. I group my profile image and text in a container with the
+                        <code>.id</code> class, which uses flexbox to place them side by side. The avatar is an
+                        <code>&lt;img&gt;</code> element with the <code>.avatar</code> class so it stays circular.
+                        Under my name, I include a short summary line and a row of <code>.chip</code> elements that highlight quick
+                        facts like Dean’s List and location.
+                    </p>
+                </div>
+            </section>
+
+            <!-- OBJECTIVE HTML -->
+            <section id="html-objective">
+                <h3>Objective Section</h3>
+                <div class="card">
+                    <img src="assets/walkthrough/03_About.jpg"
+                             alt="Screenshot of Objective HTML and the rendered Objective card.">
+                    <p>
+                        My objective lives inside <code>&lt;section id="about"&gt;</code> so the nav link for “About” scrolls
+                        directly here. I keep this section simple: one <code>.card</code> that stretches across the width of the
+                        content and clearly states what kinds of roles I’m looking for and when I’m available. I use
+                        <code>&lt;strong&gt;</code> tags to call out important keywords without over-formatting the text.
+                    </p>
+                </div>
+            </section>
+
+            <!-- SKILLS HTML -->
+            <section id="html-skills">
+                <h3>Skills Layout</h3>
+                <div class="card">
+                    <img src="assets/walkthrough/05_Skills.jpg"
+                             alt="Screenshot of Skills HTML and the rendered two-column skills section.">
+                    <p>
+                        For the Skills section, I wanted to balance technical skills and more narrative highlights. I wrap the two
+                        sides in a <code>.grid</code> container so they appear as two cards side by side on larger screens. The
+                        left card breaks skills into categories like Programming Languages and Tools, and the right card uses a
+                        bullet list to highlight hands-on experience and communication skills. On smaller screens, the grid collapses to
+                        one column so the content remains readable.
+                    </p>
+                </div>
+            </section>
+
+            <!-- EXPERIENCE HTML -->
+            <section id="html-experience">
+                <h3>Work Experience</h3>
+                <div class="card">
+                    <img src="assets/walkthrough/06_Experience.jpg"
+                             alt="Screenshot of Experience HTML and the rendered experience cards.">
+                    <p>
+                        The Experience section follows a similar pattern: each job is wrapped in a <code>.card</code>, and I use
+                        <code>.row</code> to display the position, organization, dates, and location on a single line.
+                        I then list responsibilities and achievements in bullet points. To keep the bullets visually consistent,
+                        I use a <code>.list-item</code> wrapper with a small decorative <code>.dot</code> span before the text.
+                    </p>
+                </div>
+            </section>
+
+            <!-- EDUCATION HTML -->
+            <section id="html-education">
+                <h3>Education</h3>
+                <div class="card">
+                    <img src="assets/walkthrough/07_Education.jpg"
+                             alt="Screenshot of Education HTML and the rendered Education card.">
+                    <p>
+                        My Education section is a single full-width <code>.card</code> that highlights my degree at RIT. I separate
+                        the school and location into one <code>.row</code>, and my degree, expected graduation, and Dean’s List
+                        recognition into another. Below that, I summarize key coursework in one bullet point so that hiring managers
+                        can quickly see the technical foundation behind the rest of the site.
+                    </p>
+                </div>
+            </section>
+
+            <!-- PROJECTS HTML -->
+            <section id="html-projects">
+                <h3>Projects – Password Strength Checker</h3>
+                <div class="card">
+                    <img src="assets/walkthrough/08_Projects.jpg"
+                             alt="Screenshot of Projects HTML and the rendered project card.">
+                    <p>
+                        The Projects section currently focuses on my Password Strength Checker demo. The project content is wrapped
+                        in <code>.card.project</code>. I use a <code>.title</code> div for the project name, a short description,
+                        and then an <code>&lt;a&gt;</code> element styled as a primary button that links out to the demo at
+                        <code>demos/password/index.html</code>. This shows that I can connect a standalone tool into a larger
+                        portfolio site.
+                    </p>
+                </div>
+            </section>
+
+            <!-- CONTACT HTML -->
+            <section id="html-contact">
+                <h3>Contact</h3>
+                <div class="card">
+                    <img src="assets/walkthrough/04_Contact.jpg"
+                             alt="Screenshot of Contact HTML and the rendered contact card.">
+                    <p>
+                        For the Contact section, I wanted something simple and printable. I keep everything in one sentence inside a
+                        <code>.card</code>, using <code>&lt;strong&gt;</code> labels for Phone, Email, and LinkedIn, followed by
+                        clickable links. I use a <code>tel:</code> link for my phone, a <code>mailto:</code> link for my email, and
+                        a normal <code>https://</code> link for LinkedIn, so the contact information works well on both desktop and
+                        mobile.
+                    </p>
+                </div>
+            </section>
+
+            <!-- FOOTER HTML -->
+            <section id="html-footer">
+                <h3>Footer</h3>
+                <div class="card">
+                    <img src="assets/walkthrough/09_Footer.jpg"
+                             alt="Screenshot of Footer HTML and the rendered footer.">
+                    <p>
+                        The footer is short on purpose. It includes a line with my name, a dynamic year (controlled with
+                        JavaScript), and a quick summary that the site is accessible, responsive, print-ready, and supports
+                        dark mode. The year itself lives in a <code>&lt;span id="year"&gt;</code>, which I update when the page
+                        loads so I never have to hardcode the date again.
+                    </p>
+                </div>
+            </section>
+
+        </section> <!-- end #html-structure -->
+
+        <!-- ===================================================== -->
+        <!-- =============== PART B: INTERACTION ================= -->
+        <!-- ===================================================== -->
+
+        <section id="interaction">
+            <h2>Adding Interactivity with JavaScript</h2>
+            <div class="card">
+                <p>
+                    After I was happy with the HTML layout, I added a small amount of JavaScript to make the site feel more
+                    interactive. My goals here were to keep the script lightweight and focused, while still demonstrating that
+                    I know how to work with the DOM, events, and browser storage.
+                </p>
+            </div>
+            <section id="javascript-section">
+                <h3>Theme Toggle and Dynamic Year</h3>
+                <div class="card">
+                    <img src="assets/walkthrough/10_InlineJS.jpg"
+                             alt="Screenshot of inline JavaScript used for theme toggling and dynamic year.">
+                    <p>
+                        This inline script handles two main behaviors:
+                    </p>
+                    <ul>
+                        <li>
+                            <strong>Dark/Light Mode Toggle:</strong>
+                            I read the current theme preference from <code>localStorage</code> (or default to light mode), then set a
+                            <code>data-theme</code> attribute on the <code>&lt;html&gt;</code> element. When the user clicks the
+                            theme toggle button, I switch the value, update the attribute, save the new theme back to
+                            <code>localStorage</code>, and change the button label so it always matches the active mode.
+                        </li>
+                        <li>
+                            <strong>Dynamic Footer Year:</strong>
+                            I grab the <code>#year</code> span and set its <code>textContent</code> to
+                            <code>new Date().getFullYear()</code>. It’s a small detail, but it shows that the site is current without
+                            needing manual edits every January.
+                        </li>
+                    </ul>
+                    <p>
+                        Even though this is a small amount of JavaScript, it ties the UI, CSS variables, and user preferences
+                        together in a meaningful way.
+                    </p>
+                </div>
+            </section>
+        </section>
+
+        <!-- ===================================================== -->
+        <!-- ================ PART C: CSS DESIGN ================= -->
+        <!-- ===================================================== -->
+
+        <section id="css-design">
+            <h2>How I Designed the CSS</h2>
+            <div class="card">
+                <p>
+                    I treated the stylesheet like a small design system. Instead of styling everything one-off, I built reusable
+                    pieces: theme variables, layout primitives, cards, grids, buttons, chips, and so on. That makes the site
+                    easier to update and keeps the look consistent across pages.
+                </p>
+            </div>
+
+            <!-- THEME VARIABLES -->
+            <section id="css-theme">
+                <h3>Theme Variables</h3>
+                <div class="card">
+                    <img src="assets/walkthrough/01_Styles_Theme.jpg"
+                             alt="CSS root theme variables for light and dark mode.">
+                    <p>
+                        At the top of my stylesheet, I define CSS custom properties (variables) for colors like backgrounds, text,
+                        borders, and accents. I set a default set on <code>:root</code> for light mode and override them inside
+                        <code>html[data-theme="dark"]</code> for dark mode. Because the rest of the CSS uses these variables, I can
+                        switch themes by changing just one attribute on the root element.
+                    </p>
+                </div>
+            </section>
+
+            <!-- GLOBAL RESETS -->
+            <section id="css-global">
+                <h3>Global Resets and Base Styles</h3>
+                <div class="card">
+                    <img src="assets/walkthrough/02_Styles_GR.jpg"
+                             alt="Global reset and base styles.">
+                    <p>
+                        Here I apply a reset so every element uses <code>box-sizing: border-box</code>, which makes width and
+                        padding much easier to reason about. I also remove the default body margin, pick a system UI font stack, and
+                        wire the base text and background colors to my theme variables. Link colors and hover states are also
+                        defined here so they’re consistent everywhere.
+                    </p>
+                </div>
+            </section>
+
+            <!-- LAYOUT -->
+            <section id="css-layout">
+                <h3>Page Layout and Header</h3>
+                <div class="card">
+                    <img src="assets/walkthrough/03_Styles_Layout.jpg"
+                             alt="Layout CSS for container, header, and avatar.">
+                    <p>
+                        The <code>.container</code> class limits the content width and centers it with auto margins, while the
+                        header uses flexbox to position my photo and text side by side. The <code>.id</code> class groups the
+                        avatar and name, and <code>.avatar</code> makes the image a circle and crops it nicely with
+                        <code>object-fit: cover</code>. This keeps the top of the page visually balanced and easy to scan.
+                    </p>
+                </div>
+            </section>
+
+            <!-- BUTTONS -->
+            <section id="css-buttons">
+                <h3>Buttons</h3>
+                <div class="card">
+                    <img src="assets/walkthrough/04_Styles_Buttons.jpg"
+                             alt="Button and button group styling.">
+                    <p>
+                        Buttons are built using a base <code>.btn</code> class and an optional <code>.primary</code> modifier. The
+                        base class handles padding, borders, rounded corners, and flex alignment so icons and text can sit nicely on
+                        one line. <code>.btn.primary</code> applies the accent color and white text, which I reuse for the Download
+                        PDF and Password Checker buttons. The <code>.btns</code> container lines up multiple buttons with consistent
+                        spacing.
+                    </p>
+                </div>
+            </section>
+
+            <!-- NAVIGATION -->
+            <section id="css-nav">
+                <h3>Navigation Styling</h3>
+                <div class="card">
+                    <img src="assets/walkthrough/05_Styles_Nav.jpg"
+                             alt="Navigation bar CSS including sticky positioning.">
+                    <p>
+                        The navigation bar is styled to be sticky, so it stays at the top of the viewport when the user scrolls.
+                        The <code>nav</code> element gets a background tied to the theme and a light bottom border. Inside,
+                        <code>.navwrap</code> uses flexbox to horizontally align links, with gap spacing and horizontal scrolling
+                        on very small screens. Each link has padding and rounded corners, and the hover state uses the card
+                        background color for a subtle highlight.
+                    </p>
+                </div>
+            </section>
+
+            <!-- SECTIONS -->
+            <section id="css-sections">
+                <h3>Section Spacing and Headings</h3>
+                <div class="card">
+                    <img src="assets/walkthrough/06_Styles_Sections.jpg"
+                             alt="Section spacing and heading styles.">
+                    <p>
+                        To keep the page from feeling cramped, every <code>section</code> has vertical padding and a light border at
+                        the bottom. This visually separates each part of the resume. Headings like <code>h2</code> and
+                        <code>h3</code> get consistent sizes and margins so the hierarchy is clear. The <code>.muted</code> class
+                        uses a softer color for supporting text, such as subtitles and labels.
+                    </p>
+                </div>
+            </section>
+
+            <!-- GRID -->
+            <section id="css-grid">
+                <h3>Grid Layout</h3>
+                <div class="card">
+                    <img src="assets/walkthrough/07_Styles_Grid.jpg"
+                             alt="Grid layout and responsive media query.">
+                    <p>
+                        The <code>.grid</code> class is my main layout tool for side-by-side cards in the Skills and Experience
+                        sections. On larger screens, it uses two equal-width columns with a gap. A media query at
+                        <code>max-width: 820px</code> switches the grid to a single column, which keeps the content readable on
+                        tablets and phones without needing a totally different layout.
+                    </p>
+                </div>
+            </section>
+
+            <!-- CARDS -->
+            <section id="css-cards">
+                <h3>Card Components</h3>
+                <div class="card">
+                    <img src="assets/walkthrough/08_Styles_Cards.jpg"
+                             alt="Card component and project layout styling.">
+                    <p>
+                        The <code>.card</code> class is the backbone of my design system. It gives each block a consistent
+                        background, border, border radius, and padding. The <code>.project</code> card extends this by using flexbox
+                        to stack the project title, description, and button with comfortable spacing. This shared “card” look ties
+                        the whole site together visually.
+                    </p>
+                </div>
+            </section>
+
+            <!-- CHIPS -->
+            <section id="css-chips">
+                <h3>Chips</h3>
+                <div class="card">
+                    <img src="assets/walkthrough/09_Styles_Chips.jpg"
+                             alt="Chip container and chip styling.">
+                    <p>
+                        I use the <code>.chips</code> and <code>.chip</code> classes to create the pill-shaped labels under my name
+                        in the header. <code>.chips</code> is a flex container that wraps when there isn’t enough horizontal space.
+                        Each <code>.chip</code> has a background, rounded corners, border, and compact typography, making it a
+                        reusable pattern for quick metadata like location or honors.
+                    </p>
+                </div>
+            </section>
+
+            <!-- FORM FIELDS -->
+            <section id="css-formfields">
+                <h3>Form Fields</h3>
+                <div class="card">
+                    <img src="assets/walkthrough/10_Styles_FormFields.jpg"
+                             alt="Form field container and input styling.">
+                    <p>
+                        Even though the live resume doesn’t currently have a full contact form, I set up a <code>.field</code>
+                        pattern for potential future use. It includes a bold label on its own line and an input or textarea with
+                        full width, padding, rounded corners, and theme-aware colors. This keeps the styling consistent if I decide
+                        to add forms later.
+                    </p>
+                </div>
+            </section>
+
+            <!-- TABLES -->
+            <section id="css-tables">
+                <h3>Table Styling</h3>
+                <div class="card">
+                    <img src="assets/walkthrough/11_Styles_TableStyling.jpg"
+                             alt="Table and badge styling for demo tables.">
+                    <p>
+                        I created a small table design system for use in demos, such as an SQL dashboard mockup. The
+                        <code>.table-wrap</code> container enables horizontal scrolling and adds rounded corners. Table cells use
+                        consistent padding and borders, and the header row in <code>thead</code> is sticky so column labels stay
+                        visible when scrolling. The <code>.badge</code>, <code>.badge.ok</code>, and <code>.badge.warn</code>
+                        classes turn small pieces of text into status pills.
+                    </p>
+                </div>
+            </section>
+
+            <!-- IMAGES IN CARDS -->
+            <section id="css-images">
+                <h3>Images Inside Cards</h3>
+                <div class="card">
+                    <img src="assets/walkthrough/12_Styles_CardImage.jpg"
+                             alt="Image styling inside cards.">
+                    <p>
+                        For this walkthrough page, I wanted screenshots to look clean and consistent. The image rules make sure that
+                        any <code>&lt;img&gt;</code> inside a <code>.card</code> scales to 100% of the card width, keeps its aspect
+                        ratio, and has rounded corners and a subtle border. I also give each image a margin at the bottom so the
+                        caption text doesn’t sit directly against it.
+                    </p>
+                </div>
+            </section>
+
+            <!-- PRINT STYLES -->
+            <section id="css-print">
+                <h3>Print Styles</h3>
+                <div class="card">
+                    <img src="assets/walkthrough/13_Styles_PrintStyles.jpg"
+                             alt="Print-specific styles for the resume.">
+                    <p>
+                        Finally, I use a <code>@media print</code> block to make sure the resume prints cleanly. I hide navigation,
+                        interactive buttons, and the theme toggle so only the content remains. The colors switch to a white
+                        background with black text, card borders are softened, and link styling is removed. This makes the printed
+                        version feel closer to a traditional resume while still using the same HTML.
+                    </p>
+                </div>
+            </section>
+
+        </section> <!-- end #css-design -->
+
+    </div>
+</body>
+</html>

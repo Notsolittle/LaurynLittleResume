@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Password Strength Checker (Strict)</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="container">
+    <section class="card" aria-labelledby="checker-title">
+      <h1 id="checker-title">Password Strength Checker</h1>
+      <p class="subtitle">Enter your password to check its strength</p>
+
+      <!-- Password + show/hide -->
+      <div class="input-row">
+        <label for="password">Password</label>
+        <div class="password-wrap">
+          <input
+            id="password"
+            name="password"
+            type="password"
+            inputmode="text"
+            autocomplete="new-password"
+            aria-describedby="strength-label requirements"
+            aria-live="off"
+            placeholder="Enter your password..."
+          />
+          <button id="toggle-visibility" type="button" aria-pressed="false" aria-label="Show password">
+            Show
+          </button>
+        </div>
+      </div>
+
+      <!-- Strength meter + label -->
+      <div class="meter-row">
+        <meter id="strength-meter" min="0" max="100" low="60" high="90" optimum="100" value="0"></meter>
+        <div id="strength-label" class="strength-label" aria-live="polite">Start typing…</div>
+      </div>
+
+      <!-- Entropy & crack-time -->
+      <div class="entropy">Entropy: <span id="entropy-bits">0</span> bits</div>
+
+      <!-- Requirements -->
+      <ul id="requirements" class="requirements">
+        <li data-check="length"><span class="icon" aria-hidden="true">⬤</span> At least 12 characters</li>
+        <li data-check="upper"><span class="icon" aria-hidden="true">⬤</span> At least one uppercase letter (A–Z)</li>
+        <li data-check="lower"><span class="icon" aria-hidden="true">⬤</span> At least one lowercase letter (a–z)</li>
+        <li data-check="digit"><span class="icon" aria-hidden="true">⬤</span> At least one digit (0–9)</li>
+        <li data-check="symbol"><span class="icon" aria-hidden="true">⬤</span> At least one symbol</li>
+        <li data-check="repeats"><span class="icon" aria-hidden="true">⬤</span> No long repeated runs (e.g., “aaaa”)</li>
+        <li data-check="common"><span class="icon" aria-hidden="true">⬤</span> Not a common pattern (keyboard/order)</li>
+      </ul>
+
+      <!-- Confirm password -->
+      <div class="input-row">
+        <label for="confirm">Confirm Password</label>
+        <input id="confirm" type="password" autocomplete="new-password" placeholder="Re-type the password…" aria-describedby="match-note" />
+        <div id="match-note" class="note" aria-live="polite"></div>
+      </div>
+
+    <!-- Generator -->
+    <div class="generator cardish" aria-label="Password generator">
+      <div class="gen-row">
+        <label for="len">Length: <strong id="len-val">16</strong></label>
+        <input id="len" type="range" min="8" max="32" value="16" />
+      </div>
+      <div class="gen-row">
+        <label><input type="checkbox" id="g-lower" checked> Lowercase</label>
+        <label><input type="checkbox" id="g-upper" checked> Uppercase</label>
+        <label><input type="checkbox" id="g-digit" checked> Digits</label>
+        <label><input type="checkbox" id="g-symbol" checked> Symbols</label>
+      </div>
+      <div class="gen-row">
+        <button id="gen" type="button">Generate strong password</button>
+        <button id="copy" type="button">Copy to clipboard</button>
+      </div>
+    </div>
+
+    <!-- Actions -->
+    <div class="actions">
+      <div class="crack">
+        Estimated crack time (offline): <span id="crack-time">—</span>
+      </div>
+      <button id="create" type="button" disabled>
+        Create Account
+      </button>
+    </div>
+
+    <!-- Tips -->
+    <details class="hint">
+      <summary>Tips for a strong password</summary>
+      <p>
+        Longer is better (12+). Mix character types. Avoid dictionary words,
+        common phrases, and predictable patterns like “qwerty1234” or
+        “abcd5678”.
+      </p>
+    </details>
+    </section>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
