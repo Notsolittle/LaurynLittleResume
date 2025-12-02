@@ -59,5 +59,6 @@ Semantic HTML, high contrast, alt text, keyboard-friendly, large font sizes.
 
 Lauryn Little
 Cybersecurity (BS) — RIT
+
 Email: Rynlittle1213@gmail.com
 LinkedIn: linkedin.com/in/laurynlittle
